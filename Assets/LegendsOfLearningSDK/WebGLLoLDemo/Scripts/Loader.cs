@@ -43,7 +43,7 @@ public class Loader : MonoBehaviour
 #endif
 
         // Initialize the object, passing in the WebGL
-        LOLSDK.Init(webGL, "com.legends-of-learning.unity.sdk.v5.4.example-game");
+        LOLSDK.Init(webGL, "Rounding Roundup Loader");
 
         // Register event handlers
         LOLSDK.Instance.StartGameReceived += new StartGameReceivedHandler(HandleStartGame);

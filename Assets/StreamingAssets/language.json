@@ -1,51 +1,48 @@
 {
   "_meta": {
     "maxChars": {
-      "welcome": 20,
-      "readyToPlay": 20,
-      "pressContinue": 50,
-      "greatJob": 20,
-      "onePlusOne": 30
+      "newGame": 20,
+      "continue": 20,
+      "stage1Text1": 80,
+      "stage1Text2": 190,
+      "stage1Text3": 230,
+      "stage1Text4": 60,
+      "stage1Text5": 80,
+      "stage1Text6": 100,
+      "stage1Text7": 110,
     }
   },
   "en": {
-    "welcome": "Welcome!",
-    "readyToPlay": "Are you ready to play?",
-    "greatJob": "Great job!",
-    "pressContinue": "Press the next button to continue.",
-    "onePlusOne": "One + One = Two",
-    "newGame": "New Game",
-    "continue": "Continue",
-    "pantry": "Pantry",
-    "purchasePan": "Purchase Pan",
-    "autoSave": "...Auto Saving Complete"
+      "newGame": "New Game",
+      "continue": "Continue",
+      "stage1Text1": "Good morning Postbot. We have some letters that need delivering.",
+      "stage1Text2": "It looks like some of the house numbers have fallen off. Let’s help the residents by putting the numbers back where they belong. I'm sure they'll leave us a few tips for helping! ",
+      "stage1Text3": "Notice how the houses are lined up from 10 to 20. Just like a number line, the numbers get bigger as we move down the street. These houses only use even numbers, so each house is two numbers higher than the one before it.",
+      "stage1Text4": "You can move around the WASD or the arrow keys.",
+      "stage1Text5": "Pick up a house number and place it on the correct house.",
+      "stage1Text6": "It looks like house number 10 already has a house number. Let's start at number 12.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
   },
   "es": {
-    "welcome": "¡Bienvenido!",
-    "readyToPlay": "¿Estás listo para jugar?",
-    "greatJob": "¡Gran trabajo!",
-    "pressContinue": "Presione el botón 'siguiente' para continuar.",
-    "onePlusOne": "Uno + Uno = Dos"
-  },
-  "zh": {
-    "welcome": "欢迎！",
-    "readyToPlay": "你准备好玩吗",
-    "greatJob": "做得好！",
-    "pressContinue": "按“下一步”按钮继续。",
-    "onePlusOne": "一+一=二"
-  },
-  "jp": {
-    "welcome": "ようこそ!",
-    "readyToPlay": "あなたは遊ぶ準備ができていますか？",
-    "greatJob": "よくやった！",
-    "pressContinue": "続行するには '次へ'ボタンを押してください。",
-    "onePlusOne": "1 + 1 = 2"
+      "newGame": "New Game",
+      "continue": "Continue",
+      "stage1Text1": "Good morning Postbot. We have some letters that need delivering.",
+      "stage1Text2": "It looks like some of the house numbers have fallen off. Let’s help the residents by putting the numbers back where they belong. I'm sure they'll leave us a few tips for helping! ",
+      "stage1Text3": "Notice how the houses are lined up from 10 to 20. Just like a number line, the numbers get bigger as we move to the right. These houses only use even numbers, so each house is two numbers higher than the one before it.",
+      "stage1Text4": "You can move around the WASD or the arrow keys.",
+      "stage1Text5": "Pick up a house number and place it on the correct house.",
+      "stage1Text6": "It looks like house number 10 already has a house number. Let's start at number 12.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
   },
   "ru": {
-    "welcome": "Добро пожаловать!",
-    "readyToPlay": "Вы готовы играть?",
-    "greatJob": "Отличная работа!",
-    "pressContinue": "Нажмите следующую кнопку, чтобы продолжить.",
-    "onePlusOne": "один + один"
+      "newGame": "New Game",
+      "continue": "Continue",
+      "stage1Text1": "Good morning Postbot. We have some letters that need delivering.",
+      "stage1Text2": "It looks like some of the house numbers have fallen off. Let’s help the residents by putting the numbers back where they belong. I'm sure they'll leave us a few tips for helping! ",
+      "stage1Text3": "Notice how the houses are lined up from 10 to 20. Just like a number line, the numbers get bigger as we move to the right. These houses only use even numbers, so each house is two numbers higher than the one before it.",
+      "stage1Text4": "You can move around the WASD or the arrow keys.",
+      "stage1Text5": "Pick up a house number and place it on the correct house.",
+      "stage1Text6": "It looks like house number 10 already has a house number. Let's start at number 12.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
   }
 }
