@@ -26,6 +26,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject textPanal;
         //public ArrowPointer arrow;
 
+        public GameObject numberLine;
+
         public bool panalOpen;
         public bool runOnce;
         public bool runOnce2;
@@ -139,6 +141,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     backwardsButton.gameObject.SetActive(true);
                      break;
                 case 2:
+                    numberLine.gameObject.SetActive(true);
                     break;
                 case 3:
                     StartCoroutine(EnableCross());
