@@ -9,7 +9,7 @@
       "stage1Text4": 130,
       "stage1Text5": 80,
       "stage1Text6": 100,
-      "stage1Text7": 110,
+      "stage1Text7": 110
     }
   },
   "en": {
@@ -21,7 +21,7 @@
       "stage1Text4": "You can move around the WASD or the arrow keys. Let us go find some house numbers lying around the street",
       "stage1Text5": "Pick up a house number and place it on the correct house.",
       "stage1Text6": "It looks like house number 10 already has a house number. What house number goes next?",
-      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number."
   },
   "es": {
       "newGame": "New Game",
@@ -32,7 +32,7 @@
       "stage1Text4": "You can move around the WASD or the arrow keys. Let us go find some house numbers lying around the street",
       "stage1Text5": "Pick up a house number and place it on the correct house.",
       "stage1Text6": "It looks like house number 10 already has a house number. What house number goes next?",
-      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number."
   },
   "ru": {
       "newGame": "New Game",
@@ -43,6 +43,6 @@
       "stage1Text4": "You can move around the WASD or the arrow keys. Let us go find some house numbers lying around the street",
       "stage1Text5": "Pick up a house number and place it on the correct house.",
       "stage1Text6": "It looks like house number 10 already has a house number. What house number goes next?",
-      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number.",
+      "stage1Text7": "Pick up a number with the E key and walk up to a house and press E again to place the number."
   }
 }
