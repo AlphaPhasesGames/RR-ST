@@ -7,7 +7,43 @@ namespace Alpha.Phases.Rounding.Roundup
     {
         public bool areWeCarryingNumber;
         public int houseNumber;
-        
-    
+        public int housesVisited;
+        public Stage1TextManager textMan;
+        public bool hasFired;
+        public bool textFired;
+        public SphereCollider spherecollider1;
+        public SphereCollider spherecollider2;
+        public SphereCollider spherecollider3;
+        public SphereCollider spherecollider4;
+        public SphereCollider spherecollider5;
+        public SphereCollider spherecollider6;
+        public GameObject ethylTrigger;
+        public int numberOnletter;
+
+
+        private void Update()
+        {
+            if (hasFired)
+            {
+                return;
+            }
+
+            if(housesVisited > 3 && !hasFired)
+            {
+                numberOnletter = 11;
+                spherecollider1.enabled = true;
+                spherecollider2.enabled = true;
+                spherecollider3.enabled = true;
+                spherecollider4.enabled = true;
+                spherecollider5.enabled = true;
+                spherecollider6.enabled = true;
+
+                textMan.positionChanged = true;
+                textMan.arrayPos = 8;
+                ethylTrigger.gameObject.SetActive(true);
+                hasFired = true;
+            }
+        }
+
     }
 }

@@ -40,7 +40,16 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public Button[] textButtons;
         public bool[] textBools;
+
+        public GameObject letterFront;
+        public GameObject text13;
+        public GameObject text18;
+        public GameObject text15;
+
+        public GameObject wagesSide;
+        public GameObject FinalWages;
 /*
+
         public GameObject diagram;
         public GameObject switchParent;
 
@@ -130,6 +139,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         LOLSDK.Instance.SubmitProgress(0, 0, 100);
                         submitOnce = true;
                     }
+                    playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     StartCoroutine(DelayTextButton());
@@ -147,227 +157,226 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(EnableCross());
                     break;
                 case 4:
-                    textPanal.gameObject.SetActive(false);
-                    break;
-                    /*
-                case 5:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    positionChanged = true;
                     textPanal.gameObject.SetActive(true);
-                    LOLSDK.Instance.SubmitProgress(0, 10, 100);
-                    concept3Rock.gameObject.SetActive(true);
-                    concept4RegMeta.gameObject.SetActive(true);
-                    MainGameManager.Instance.currentTask = 1;
-                    MainGameManager.Instance.SaveTaskS1();
-                    StartCoroutine(DelayTextButton());
-                    break;
-                case 6:
-                    backwardsButton.gameObject.SetActive(true);
-                    break;
-                case 7:
-                    taskPanal.gameObject.SetActive(true);
-                    task1.gameObject.SetActive(true);
-                    break;
-                case 8:
-
-                    break;
-                case 9:
-
-                    break;
-                case 10:
-
+                    backwardsButton.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
                     StartCoroutine(EnableCross());
                     break;
-                case 11:
+                case 5:
+                    textPanal.gameObject.SetActive(true);
                     playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(EnableCross());
+                    break;
+                case 6:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(EnableCross());
+                    break;
+                case 7:
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
+                case 8:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
+                    break;
+                   
+                case 9:
+                    letterFront.gameObject.SetActive(true);
+                    text13.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(true);
+                    break;
+                case 10:
+
+
+                    break;
+                case 11:
+                    StartCoroutine(EnableCross());
+                    break;
                 case 12:
-                    playerCont.moveSpeed = 0;
+                    text13.gameObject.SetActive(false);
+                    text18.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 13:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(DelayTextButton());
-                    //  basaltDiag.gameObject.SetActive(true);
+                    StartCoroutine(EnableCross());
+                    break;                    
+               case 14:
+                    // This is free atm
+                  
                     break;
-                case 14:
+               case 15:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(EnableCross());
+                    break;
+               case 16:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(EnableCross());
+                    break;                    
+              case 17:
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    wagesSide.gameObject.SetActive(false);
+                    FinalWages.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
+                    break;                 
+              case 18:
                     backwardsButton.gameObject.SetActive(true);
-                    break;
-                case 15:
-                    task1.gameObject.SetActive(false);
                     StartCoroutine(DelayTextButton());
-                    break;
-                case 16:
-
-                    task2.gameObject.SetActive(true);
-                    concept1Process.gameObject.SetActive(true);
-                    break;
-                case 17:
-
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 18: // bottlescollected
-                    playerCont.moveSpeed = 0;
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 19: // rock cycle steps -
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 20:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 21:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 22:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 23:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 24:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 25:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
-                    break;
-                case 26:
-                    playerCont.moveSpeed = 0;
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    journalFWD.gameObject.SetActive(true);
-                    journalBCK.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 27:
-                    playerCont.moveSpeed = 0;
-                    taskPanal.gameObject.SetActive(false);
-                    task2.gameObject.SetActive(false);
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 28: // diagram text
-                    playerCont.moveSpeed = 0;
-                    if (!submitTwice)
-                    {
-                        LOLSDK.Instance.SubmitProgress(0, 15, 100);
-                        submitTwice = true;
-                    }
-                    concept2GeoProcess.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    diagram.gameObject.SetActive(true);
-                    // StartCoroutine(MoveToBlankInvislbePanalUnit172());
-                    break;
-                case 29: // incorrect
-                    StartCoroutine(MoveToQuestion());
-                    textPanal.gameObject.SetActive(true);
-                    //StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 30: // correct first
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 31: // all correct
-                    StartCoroutine(DelayTextButton());
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 32:
-                    backwardsButton.gameObject.SetActive(true);
-                    //arrow.gameObject.SetActive(false);
-                    diagram.gameObject.SetActive(false);
-                    taskPanal.gameObject.SetActive(true);
-                    task3.gameObject.SetActive(true);
-                    LOLSDK.Instance.SubmitProgress(0, 20, 100);
-                    MainGameManager.Instance.currentTask = 3;
-                    MainGameManager.Instance.SaveTaskS1();
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 33:
+                    break;                   
+              case 19: // rock cycle steps -
+                    numberLine.gameObject.SetActive(false);
 
                     break;
-                case 34:
-
+              case 20:
                     break;
-                case 35:
-                    switchParent.gameObject.SetActive(true);
-
-
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              case 21:
+                    FinalWages.gameObject.SetActive(false);
                     break;
-                case 36: // wrong
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 37:
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 38:
-                    backwardsButton.gameObject.SetActive(false);
-
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 39:
-                    backwardsButton.gameObject.SetActive(false);
-
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 40:
-                    backwardsButton.gameObject.SetActive(false);
-
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 41:
-                    backwardsButton.gameObject.SetActive(false);
-
-                    textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    break;
-                case 42:
-                    backwardsButton.gameObject.SetActive(false);
-
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 43:
-                    textPanal.gameObject.SetActive(true);
-                    break;
-                case 44:
+              case 22:
                     textPanal.gameObject.SetActive(false);
                     break;
+                    /*
+          case 21:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(EnableCross());
+              break;
+          case 22:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(EnableCross());
+              break;
+          case 23:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(EnableCross());
+              break;
+          case 24:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(EnableCross());
+              break;
+          case 25:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(EnableCross());
+              break;
+          case 26:
+              playerCont.moveSpeed = 0;
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              journalFWD.gameObject.SetActive(true);
+              journalBCK.gameObject.SetActive(true);
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 27:
+              playerCont.moveSpeed = 0;
+              taskPanal.gameObject.SetActive(false);
+              task2.gameObject.SetActive(false);
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 28: // diagram text
+              playerCont.moveSpeed = 0;
+              if (!submitTwice)
+              {
+                  LOLSDK.Instance.SubmitProgress(0, 15, 100);
+                  submitTwice = true;
+              }
+              concept2GeoProcess.gameObject.SetActive(true);
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              diagram.gameObject.SetActive(true);
+              // StartCoroutine(MoveToBlankInvislbePanalUnit172());
+              break;
+          case 29: // incorrect
+              StartCoroutine(MoveToQuestion());
+              textPanal.gameObject.SetActive(true);
+              //StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 30: // correct first
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 31: // all correct
+              StartCoroutine(DelayTextButton());
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 32:
+              backwardsButton.gameObject.SetActive(true);
+              //arrow.gameObject.SetActive(false);
+              diagram.gameObject.SetActive(false);
+              taskPanal.gameObject.SetActive(true);
+              task3.gameObject.SetActive(true);
+              LOLSDK.Instance.SubmitProgress(0, 20, 100);
+              MainGameManager.Instance.currentTask = 3;
+              MainGameManager.Instance.SaveTaskS1();
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 33:
+
+              break;
+          case 34:
+
+              break;
+          case 35:
+              switchParent.gameObject.SetActive(true);
 
 
-                    */
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 36: // wrong
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 37:
+              backwardsButton.gameObject.SetActive(false);
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 38:
+              backwardsButton.gameObject.SetActive(false);
+
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 39:
+              backwardsButton.gameObject.SetActive(false);
+
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 40:
+              backwardsButton.gameObject.SetActive(false);
+
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 41:
+              backwardsButton.gameObject.SetActive(false);
+
+              textPanal.gameObject.SetActive(true);
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              break;
+          case 42:
+              backwardsButton.gameObject.SetActive(false);
+
+              StartCoroutine(MoveToBlankInvislbePanalUnit17());
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 43:
+              textPanal.gameObject.SetActive(true);
+              break;
+          case 44:
+              textPanal.gameObject.SetActive(false);
+              break;
+
+
+              */
 
             }
         }
@@ -390,9 +399,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 4 && arrayPos != 10 && arrayPos != 11 && arrayPos != 12 && arrayPos != 17 && arrayPos != 18
-                    && arrayPos != 19 && arrayPos != 20 && arrayPos != 21 && arrayPos != 22 && arrayPos != 23
-                    && arrayPos != 24 && arrayPos != 25 && arrayPos != 27 && arrayPos != 28 && arrayPos != 29 && arrayPos != 30 && arrayPos != 35 && arrayPos != 37 && arrayPos != 36 && arrayPos != 38 && arrayPos != 39 && arrayPos != 40)
+                if (arrayPos != 3 && arrayPos != 4 && arrayPos != 5 && arrayPos != 6 && arrayPos != 7 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -517,7 +524,7 @@ namespace Alpha.Phases.Rounding.Roundup
             yield return new WaitForSeconds(7);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 44;
+            arrayPos = 20;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -559,7 +566,7 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             textPanal.gameObject.SetActive(false);
             positionChanged = true;
-            arrayPos = 4;
+            arrayPos = 20;
             playerCont.moveSpeed = 5;
             crossButton1.gameObject.SetActive(false);
         }
