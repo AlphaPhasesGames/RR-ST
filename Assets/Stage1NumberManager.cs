@@ -17,6 +17,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public SphereCollider spherecollider4;
         public SphereCollider spherecollider5;
         public SphereCollider spherecollider6;
+        public SphereCollider spherecollider7;
+        public SphereCollider spherecollider8;
+        public SphereCollider spherecollider9;
+        public SphereCollider spherecollider10;
         public GameObject ethylTrigger;
         public int numberOnletter;
 
@@ -28,7 +32,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 return;
             }
 
-            if(housesVisited > 3 && !hasFired)
+            if(housesVisited > 6 && !hasFired)
             {
                 numberOnletter = 11;
                 spherecollider1.enabled = true;
@@ -37,6 +41,10 @@ namespace Alpha.Phases.Rounding.Roundup
                 spherecollider4.enabled = true;
                 spherecollider5.enabled = true;
                 spherecollider6.enabled = true;
+                spherecollider7.enabled = true;
+                spherecollider8.enabled = true;
+                spherecollider9.enabled = true;
+                spherecollider10.enabled = true;
 
                 textMan.positionChanged = true;
                 textMan.arrayPos = 8;

@@ -25,7 +25,7 @@ namespace Alpha.Phases.Rounding.Roundup
         private void Start()
         {
             wagesSlider.minValue = 10;
-            wagesSlider.maxValue = 20;
+            wagesSlider.maxValue = 100;
             wagesSlider.wholeNumbers = true;
 
             wagesSlider.onValueChanged.AddListener(OnSliderChanged);
@@ -56,7 +56,7 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             if (int.TryParse(value, out int result))
             {
-                result = Mathf.Clamp(result, 10, 20);
+                result = Mathf.Clamp(result, 10, 100);
 
                 playerAnswer = result;
                 wagesSlider.value = result;

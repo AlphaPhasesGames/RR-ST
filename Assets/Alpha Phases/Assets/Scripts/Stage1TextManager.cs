@@ -498,25 +498,13 @@ namespace Alpha.Phases.Rounding.Roundup
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(1);
           
             forwardButton.gameObject.SetActive(true);
 
             Debug.Log("This coRoutine Runs");
 
         }
-
-        public IEnumerator MoveToQuestion()
-        {
-
-            yield return new WaitForSeconds(4);
-            positionChanged = true;
-            ResetBools();
-            arrayPos = 28;
-            Debug.Log("This coRoutine Runs");
-
-        }
-
 
 
         public IEnumerator MoveToBlankInvislbePanalUnit17()

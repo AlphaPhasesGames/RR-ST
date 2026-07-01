@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Alpha.Phases.Rounding.Roundup
 {
-    public class Stage1House20PostDeliverySpot : MonoBehaviour
+    public class Stage1House80PostDeliverySpot : MonoBehaviour
     {
         public bool isInRange;
         public Animator postBoxAnimation;
@@ -16,19 +16,18 @@ namespace Alpha.Phases.Rounding.Roundup
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (numMan.numberOnletter == 55)
+                    if (numMan.numberOnletter == 78)
                     {
                         textMan.positionChanged = true;
-                        textMan.arrayPos = 15;
-                        wages.wagesValue += 2;
+                        textMan.arrayPos = 17;
                         textMan.text18.gameObject.SetActive(false);
                         textMan.text15.gameObject.SetActive(true);
-                        numMan.numberOnletter = 78;
+                        //numMan.numberOnletter = 14;
                         wages.wagesValue += 2;
                         postBoxAnimation.SetBool("letterDelivered", true);
                     }
-                                       
-                    
+
+
 
                 }
             }
@@ -57,3 +56,4 @@ namespace Alpha.Phases.Rounding.Roundup
     }
 
 }
+

@@ -21,12 +21,12 @@ namespace Alpha.Phases.Rounding.Roundup
                     {
                         textMan.positionChanged = true;
                         textMan.arrayPos = 12;
-                        numMan.numberOnletter = 15;
+                        numMan.numberOnletter = 55;
                         postBoxAnimation.SetBool("letterDelivered", true);
                         wages.wagesValue += 2;
                        // ethylTrigger.gameObject.SetActive(true);
                     }
-
+/*
                     else if (numMan.numberOnletter == 14)
                     {
                         textMan.positionChanged = true;
@@ -34,7 +34,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         wages.wagesValue += 2;
                         //postBoxAnimation.SetBool("letterDelivered", true);
                     }
-
+*/
                 }
             }
         }
