@@ -9,6 +9,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public int houseNumber;
         public int housesVisited;
         public Stage1TextManager textMan;
+        public Stage1WagesManager wages;
         public bool hasFired;
         public bool textFired;
         public SphereCollider spherecollider1;
@@ -23,6 +24,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public SphereCollider spherecollider10;
         public GameObject ethylTrigger;
         public int numberOnletter;
+
+
 
 
         private void Update()
@@ -45,7 +48,8 @@ namespace Alpha.Phases.Rounding.Roundup
                 spherecollider8.enabled = true;
                 spherecollider9.enabled = true;
                 spherecollider10.enabled = true;
-
+                MainGameManager.Instance.wagesCollectedMain = wages.wagesValue;
+                MainGameManager.Instance.SaveStage1HalfWay();
                 textMan.positionChanged = true;
                 textMan.arrayPos = 8;
                 ethylTrigger.gameObject.SetActive(true);

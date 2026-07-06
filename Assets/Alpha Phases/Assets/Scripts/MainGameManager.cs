@@ -18,6 +18,8 @@ namespace Alpha.Phases.Rounding.Roundup
         [Header("StageProgress")] // header for the save location for the robot
         public int current_stage; // int to hold the level number
         public int current_task;
+        public bool stage1HalfWayReached;
+        public int wagesCollected;
     }
     public class MainGameManager : MonoBehaviour
     {
@@ -28,6 +30,8 @@ namespace Alpha.Phases.Rounding.Roundup
         GQSaveData gqSaveData;
         public int currentStagedqwb;
         public int currentTask;
+        public bool stage1HalfWayReachedMain;
+        public int wagesCollectedMain;
        // public int collectedGems;
        // public bool stage2Part2;
 
@@ -131,7 +135,7 @@ namespace Alpha.Phases.Rounding.Roundup
             {
                 SceneManager.LoadScene("Stage 1 Letters");
                 currentTask = gqSaveData.current_task;
-                
+                wagesCollectedMain = gqSaveData.wagesCollected;
                 Debug.Log("Loaded Stage 1 Scene 1 Save");
             }
 
@@ -158,8 +162,17 @@ namespace Alpha.Phases.Rounding.Roundup
         void RemoveMainMenuUIContinue()
         {
             currentStagedqwb = gqSaveData.current_stage;
-           // collectedGems = gqSaveData.collected_gems;
-          Debug.Log("Loaded Save");
+            // collectedGems = gqSaveData.collected_gems;
+            /*
+            if (gqSaveData.current_stage == 1)
+            {
+                wagesCollectedMain = gqSaveData.wagesCollected;
+                currentTask = gqSaveData.current_task;
+
+                Debug.Log("Loaded Stage 1 Scene 1 Save");
+            }
+            */
+            Debug.Log("Loaded Save");
         }
 
         #region global Save stuff
@@ -201,12 +214,14 @@ namespace Alpha.Phases.Rounding.Roundup
         }
         #endregion          
 
-        public void SaveStage2Part2Location()
+        public void SaveStage1HalfWay()
         {
-            //stage2Part2 = true;
+            stage1HalfWayReachedMain = true;
+            currentTask = 2;
             gqSaveData.current_task = currentTask;
-           // gqSaveData.collected_gems = collectedGems;
-           // gqSaveData.stage_2_part_2 = stage2Part2;
+            gqSaveData.stage1HalfWayReached = stage1HalfWayReachedMain;
+            gqSaveData.wagesCollected = wagesCollectedMain;
+            Debug.Log("This save function fired");
             Save();
         }
     }
