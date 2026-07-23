@@ -6,7 +6,7 @@ namespace Alpha.Phases.Rounding.Roundup
     public class Stage1House20PostDeliverySpot : MonoBehaviour
     {
         public bool isInRange;
-        public Animator postBoxAnimation;
+       // public Animator postBoxAnimation;
         public Stage1NumberManager numMan;
         public Stage1TextManager textMan;
         public Stage1WagesManager wages;
@@ -25,7 +25,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         textMan.text15.gameObject.SetActive(true);
                         numMan.numberOnletter = 78;
                         wages.wagesValue += 2;
-                        postBoxAnimation.SetBool("letterDelivered", true);
+                       // postBoxAnimation.SetBool("letterDelivered", true);
                     }
                                        
                     

@@ -32,39 +32,16 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI stage1Text21;
         public TextMeshProUGUI stage1Text22;
 
-        /*
-        public TextMeshProUGUI stigma;
-        public TextMeshProUGUI stamen;
-
-        public TextMeshProUGUI stigmaJourn;
-        public TextMeshProUGUI stamenJourn;
-
-        public TextMeshProUGUI task1;
-        public TextMeshProUGUI task2;
-        public TextMeshProUGUI task3;
-        public TextMeshProUGUI task4;
-        public TextMeshProUGUI task5;
-        public TextMeshProUGUI pollinateLabel;
-        public TextMeshProUGUI weedingLabel;
-        public TextMeshProUGUI pruningLabel;
-
-        public TextMeshProUGUI yesButton1;
-        public TextMeshProUGUI noButton1;
-
-        public TextMeshProUGUI yesButton2;
-        public TextMeshProUGUI noButton2;
-
-        public TextMeshProUGUI yesButton3;
-        public TextMeshProUGUI noButton3;
-
-        public TextMeshProUGUI journalTitle;
-        public TextMeshProUGUI growthText;
-
-        public TextMeshProUGUI concept1Nessecary;
-        public TextMeshProUGUI concept2PollProcess;
-        public TextMeshProUGUI concept3OrderStages;
-        public TextMeshProUGUI concept4DiffPlantsAnim;
-        */
+        public TextMeshProUGUI deliverySign1;
+        public TextMeshProUGUI deliverySign2;
+        public TextMeshProUGUI deliverySign3;
+        public TextMeshProUGUI deliverySign4;
+        public TextMeshProUGUI deliverySign5;
+        public TextMeshProUGUI deliverySign6;
+        public TextMeshProUGUI deliverySign7;
+        public TextMeshProUGUI deliverySign8;
+        public TextMeshProUGUI deliverySign9;
+        public TextMeshProUGUI deliverySign10;
 
 
 
@@ -95,6 +72,18 @@ namespace Alpha.Phases.Rounding.Roundup
                         stage1Text20.text = defs["stage1Text20"];
                         stage1Text21.text = defs["stage1Text21"];
                         stage1Text22.text = defs["stage1Text22"];
+
+                        deliverySign1.text = defs["deliveryZone"];
+                        deliverySign2.text = defs["deliveryZone"];
+                        deliverySign3.text = defs["deliveryZone"];
+                        deliverySign4.text = defs["deliveryZone"];
+                        deliverySign5.text = defs["deliveryZone"];
+                        deliverySign6.text = defs["deliveryZone"];
+                        deliverySign7.text = defs["deliveryZone"];
+                        deliverySign8.text = defs["deliveryZone"];
+                        deliverySign9.text = defs["deliveryZone"];
+                        deliverySign10.text = defs["deliveryZone"];
+
         }
 
     }

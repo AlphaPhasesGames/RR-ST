@@ -22,7 +22,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public SphereCollider spherecollider8;
         public SphereCollider spherecollider9;
         public SphereCollider spherecollider10;
-        public GameObject ethylTrigger;
+       // public GameObject ethylTrigger;
         public int numberOnletter;
 
 
@@ -52,7 +52,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 MainGameManager.Instance.SaveStage1HalfWay();
                 textMan.positionChanged = true;
                 textMan.arrayPos = 8;
-                ethylTrigger.gameObject.SetActive(true);
+               // ethylTrigger.gameObject.SetActive(true);
                 hasFired = true;
             }
         }

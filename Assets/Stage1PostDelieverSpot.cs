@@ -6,7 +6,7 @@ namespace Alpha.Phases.Rounding.Roundup
     public class Stage1PostDelieverSpot : MonoBehaviour
     {
         public bool isInRange;
-        public Animator postBoxAnimation;
+       // public Animator postBoxAnimation;
         public Stage1NumberManager numMan;
         public Stage1TextManager textMan;
         public Stage1WagesManager wages;
@@ -22,7 +22,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         textMan.positionChanged = true;
                         textMan.arrayPos = 12;
                         numMan.numberOnletter = 55;
-                        postBoxAnimation.SetBool("letterDelivered", true);
+                        //postBoxAnimation.SetBool("letterDelivered", true);
                         wages.wagesValue += 2;
                        // ethylTrigger.gameObject.SetActive(true);
                     }
