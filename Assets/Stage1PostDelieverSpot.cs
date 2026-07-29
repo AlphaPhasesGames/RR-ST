@@ -26,15 +26,14 @@ namespace Alpha.Phases.Rounding.Roundup
                         wages.wagesValue += 2;
                        // ethylTrigger.gameObject.SetActive(true);
                     }
-/*
-                    else if (numMan.numberOnletter == 14)
+
+                    else if (numMan.numberOnletter != 11)
                     {
+                        textMan.ResetBools();
                         textMan.positionChanged = true;
-                        textMan.arrayPos = 17;
-                        wages.wagesValue += 2;
-                        //postBoxAnimation.SetBool("letterDelivered", true);
+                        textMan.arrayPos = 13;
                     }
-*/
+
                 }
             }
         }

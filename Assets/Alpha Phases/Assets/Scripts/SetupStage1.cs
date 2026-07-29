@@ -32,8 +32,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public SphereCollider spherecollider8;
         public SphereCollider spherecollider9;
         public SphereCollider spherecollider10;
-        public GameObject ethylTrigger;
-
+        public GameObject numTrigger;
+        public GameObject taskBar;
+        public GameObject task2Text;
         // public CameraMan camera;
 
 
@@ -54,8 +55,10 @@ namespace Alpha.Phases.Rounding.Roundup
 
                 if (MainGameManager.Instance.currentTask == 2)
                 {
+                    taskBar.gameObject.SetActive(true);
+                    task2Text.gameObject.SetActive(true);
                     numMan.numberOnletter = 11;
-                    ethylTrigger.gameObject.SetActive(true);
+                    numTrigger.gameObject.SetActive(false);
                     spherecollider1.enabled = true;
                     spherecollider2.enabled = true;
                     spherecollider3.enabled = true;

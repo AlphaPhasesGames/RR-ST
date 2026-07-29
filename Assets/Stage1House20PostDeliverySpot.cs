@@ -27,8 +27,13 @@ namespace Alpha.Phases.Rounding.Roundup
                         wages.wagesValue += 2;
                        // postBoxAnimation.SetBool("letterDelivered", true);
                     }
-                                       
-                    
+
+                    else if (numMan.numberOnletter != 55)
+                    {
+                        textMan.ResetBools();
+                        textMan.positionChanged = true;
+                        textMan.arrayPos = 13;
+                    }
 
                 }
             }

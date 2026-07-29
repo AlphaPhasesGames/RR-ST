@@ -15,8 +15,8 @@ namespace Alpha.Phases.Rounding.Roundup
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                  
 
+                    textMan.ResetBools();
                     textMan.positionChanged = true;
                     textMan.arrayPos = 13;
                 }

@@ -27,6 +27,12 @@ namespace Alpha.Phases.Rounding.Roundup
                        // postBoxAnimation.SetBool("letterDelivered", true);
                     }
 
+                    else if(numMan.numberOnletter != 78)
+                    {
+                        textMan.ResetBools();
+                        textMan.positionChanged = true;
+                        textMan.arrayPos = 13;
+                    }
 
 
                 }

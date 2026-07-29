@@ -14,6 +14,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public int arrayPos;
         public int maxLengthArray;
         public int minLengthArray = 0;
+        public GameObject taskBar;
+        public GameObject task1Text;
+        public GameObject task2Text;
+        public GameObject task3Text;
        // public Button journalFWD;
       //  public Button journalBCK;
         public bool positionChanged; //= true;
@@ -24,7 +28,6 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public GameObject[] modelArray;
         public GameObject textPanal;
-        //public ArrowPointer arrow;
 
         public GameObject numberLine;
 
@@ -34,7 +37,6 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public bool submitOnce;
         public bool submitTwice;
-        //public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
 
@@ -48,21 +50,9 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public GameObject wagesSide;
         public GameObject FinalWages;
-/*
 
-        public GameObject diagram;
-        public GameObject switchParent;
-
-        public GameObject taskPanal;
-        public GameObject task1;
-        public GameObject task2;
-        public GameObject task3;
-*/
         public Button crossButton1;
-
-
-        //public bool inventoryReadToBeOpen;
-
+        public GameObject depotArrow;
         private void Awake()
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
@@ -152,6 +142,8 @@ namespace Alpha.Phases.Rounding.Roundup
                      break;
                 case 2:
                     numberLine.gameObject.SetActive(true);
+                    taskBar.gameObject.SetActive(true);
+                    task1Text.gameObject.SetActive(true);
                     break;
                 case 3:
                     StartCoroutine(EnableCross());
@@ -166,6 +158,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 case 5:
                     textPanal.gameObject.SetActive(true);
                     playerCont.moveSpeed = 0;
+                    depotArrow.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 6:
@@ -173,12 +166,15 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(EnableCross());
                     break;
                 case 7:
+                    depotArrow.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 8:
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
+                    task1Text.gameObject.SetActive(false);
+                    task2Text.gameObject.SetActive(true);
                     break;
                    
                 case 9:
@@ -220,6 +216,8 @@ namespace Alpha.Phases.Rounding.Roundup
                     backwardsButton.gameObject.SetActive(false);
                     wagesSide.gameObject.SetActive(false);
                     FinalWages.gameObject.SetActive(true);
+                    task2Text.gameObject.SetActive(false);
+                    task3Text.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;                 
               case 18:
