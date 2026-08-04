@@ -36,24 +36,15 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public Button[] textButtons;
         public bool[] textBools;
-
-        public GameObject letterFront;
+/*
+        public GameObject deliveryList;
         public GameObject text13;
         public GameObject text18;
         public GameObject text15;
-
+        */
         public GameObject wagesSide;
         public GameObject FinalWages;
-        /*
 
-                public GameObject diagram;
-                public GameObject switchParent;
-
-                public GameObject taskPanal;
-                public GameObject task1;
-                public GameObject task2;
-                public GameObject task3;
-        */
         public Button crossButton1;
 
 
@@ -138,18 +129,18 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(EnableCross());
                     break;
                 case 3:
-                    StartCoroutine(EnableCross());
+                    backwardsButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    playerCont.moveSpeed = 0;
+                    StartCoroutine(DelayTextButton());
                     break;
                 case 4:
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    forwardButton.gameObject.SetActive(false);
-                    playerCont.moveSpeed = 0;
-                    StartCoroutine(EnableCross());
+                    backwardsButton.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
                     break;
                 case 5:
                     textPanal.gameObject.SetActive(true);
-                    playerCont.moveSpeed = 0;
+                    playerCont.moveSpeed = 5;
                     StartCoroutine(EnableCross());
                     break;
                 case 6:
@@ -164,20 +155,22 @@ namespace Alpha.Phases.Rounding.Roundup
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;
-
                 case 9:
-                    letterFront.gameObject.SetActive(true);
-                    text13.gameObject.SetActive(true);
+                    wagesSide.gameObject.SetActive(false);
+                    FinalWages.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(true);
                     break;
                 case 10:
+                    textPanal.gameObject.SetActive(true);
                     break;
                 case 11:
+                    textPanal.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 12:
-                    text13.gameObject.SetActive(false);
-                    text18.gameObject.SetActive(true);
+                    //  text13.gameObject.SetActive(false);
+                    //  text18.gameObject.SetActive(true);
+                    FinalWages.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
@@ -208,7 +201,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 3 && arrayPos != 4 && arrayPos != 5 && arrayPos != 6 && arrayPos != 7 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
+                if (arrayPos != 2 && arrayPos != 6 && arrayPos != 5 && arrayPos != 9 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -363,7 +356,7 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             textPanal.gameObject.SetActive(false);
             positionChanged = true;
-            arrayPos = 20;
+            arrayPos = 13;
             playerCont.moveSpeed = 5;
             crossButton1.gameObject.SetActive(false);
         }

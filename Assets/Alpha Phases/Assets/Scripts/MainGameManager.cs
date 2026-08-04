@@ -141,7 +141,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
             if (gqSaveData.current_stage == 2)
             {
-                SceneManager.LoadScene("Stage 2 Newspapers");
+                SceneManager.LoadScene("Stage 2 newspapers");
                 Debug.Log("Loaded Stage 1 Scene 2 Save");
             }
 
@@ -224,6 +224,17 @@ namespace Alpha.Phases.Rounding.Roundup
             Debug.Log("This save function fired");
             Save();
         }
+
+        public void ResetTask()
+        {
+            currentTask = 1;
+            gqSaveData.current_task = currentTask;
+           // gqSaveData.stage1HalfWayReached = stage1HalfWayReachedMain;
+           // gqSaveData.wagesCollected = wagesCollectedMain;
+            Debug.Log("This save function fired");
+            Save();
+        }
+
     }
 }
 

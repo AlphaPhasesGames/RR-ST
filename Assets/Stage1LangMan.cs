@@ -43,6 +43,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI deliverySign9;
         public TextMeshProUGUI deliverySign10;
 
+        public TextMeshProUGUI journalPage1;
 
 
         private void Awake()
@@ -84,6 +85,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         deliverySign9.text = defs["deliveryZone"];
                         deliverySign10.text = defs["deliveryZone"];
 
+                        journalPage1.text = defs["stage1Journal"];
         }
 
     }

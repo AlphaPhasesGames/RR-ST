@@ -1,18 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Stage2LangMan : MonoBehaviour
+using SimpleJSON;
+using TMPro;
+namespace Alpha.Phases.Rounding.Roundup
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Stage2LangMan : MonoBehaviour
     {
-        
-    }
+        public TextMeshProUGUI stage1Text1;
+        public TextMeshProUGUI stage1Text2;
+        public TextMeshProUGUI stage1Text3;
+        public TextMeshProUGUI stage1Text4;
+        public TextMeshProUGUI stage1Text5;
+        public TextMeshProUGUI stage1Text6;
+        public TextMeshProUGUI stage1Text7;
+        public TextMeshProUGUI stage1Text8;
+        public TextMeshProUGUI stage1Text9;
+        public TextMeshProUGUI stage1Text10;
+        public TextMeshProUGUI stage1Text11;
+        public TextMeshProUGUI stage1Text12;
+        public TextMeshProUGUI stage1Text13;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        public TextMeshProUGUI deliverySign1;
+        public TextMeshProUGUI deliverySign2;
+        public TextMeshProUGUI deliverySign3;
+        public TextMeshProUGUI deliverySign4;
+        public TextMeshProUGUI deliverySign5;
+        public TextMeshProUGUI deliverySign6;
+        public TextMeshProUGUI deliverySign7;
+        public TextMeshProUGUI deliverySign8;
+        public TextMeshProUGUI deliverySign9;
+        public TextMeshProUGUI deliverySign10;
+
+        public TextMeshProUGUI journalPage1;
+
+
+        private void Awake()
+        {
+            JSONNode defs = SharedState.LanguageDefs;
+
+
+            stage1Text1.text = defs["stage2Text1"];
+            stage1Text2.text = defs["stage2Text2"];
+            stage1Text3.text = defs["stage2Text3"];
+            stage1Text4.text = defs["stage2Text4"];
+            stage1Text5.text = defs["stage2Text5"];
+            stage1Text6.text = defs["stage2Text6"];
+            stage1Text7.text = defs["stage2Text7"];
+            stage1Text8.text = defs["stage2Text8"];
+            stage1Text9.text = defs["stage2Text9"];
+            stage1Text10.text = defs["stage2Text10"];
+            stage1Text11.text = defs["stage2Text11"];
+            stage1Text12.text = defs["stage2Text12"];
+            stage1Text13.text = defs["stage2Text13"];
+
+            deliverySign1.text = defs["stage2BuildingName"];
+            deliverySign2.text = defs["stage2BuildingName"];
+            deliverySign3.text = defs["stage2BuildingName"];
+            deliverySign4.text = defs["stage2BuildingName"];
+            deliverySign5.text = defs["stage2BuildingName"];
+            deliverySign6.text = defs["stage2BuildingName"];
+            deliverySign7.text = defs["stage2BuildingName"];
+            deliverySign8.text = defs["stage2BuildingName"];
+            deliverySign9.text = defs["stage2BuildingName"];
+            deliverySign10.text = defs["stage2BuildingName"];
+
+            journalPage1.text = defs["stage1Journal"];
+        }
+
     }
 }

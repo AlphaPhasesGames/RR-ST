@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLSDK;
-
+using UnityEngine.SceneManagement;
 namespace Alpha.Phases.Rounding.Roundup
 {
     public class Stage1TextManager : MonoBehaviour
@@ -18,13 +18,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject task1Text;
         public GameObject task2Text;
         public GameObject task3Text;
-       // public Button journalFWD;
-      //  public Button journalBCK;
-        public bool positionChanged; //= true;
+        public bool positionChanged; 
 
         public bool runThrice;
-
-      //  public GameObject invButton;
 
         public GameObject[] modelArray;
         public GameObject textPanal;
@@ -57,19 +53,6 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
-            //ttsButtonForAllLitter.onClick.AddListener(SpeakAllLitterText2);
-            /*ttsButtonForPaper1.onClick.AddListener(SpeakPaper1);
-            ttsButtonForPaper2.onClick.AddListener(SpeakPaper2);
-            ttsButtonForPaper3.onClick.AddListener(SpeakPaper3);
-            ttsButtonForPaper4.onClick.AddListener(SpeakPaper4);
-            ttsButtonForPaper5.onClick.AddListener(SpeakPaper5);
-            ttsButtonForPaper6.onClick.AddListener(SpeakPaper6);
-            ttsButtonForPaper7.onClick.AddListener(SpeakPaper7);
-
-            ttsButtonForConcept1Process.onClick.AddListener(SpeakJournal1Process);
-            ttsButtonForConcept2GeoProcess.onClick.AddListener(SpeakJournal2GeoProcess);
-            ttsButtonForConcept3Rock.onClick.AddListener(SpeakJournal3Rock);
-            ttsButtonForConcept4RegMeta.onClick.AddListener(SpeakJournal4RegMeta);*/
 
             crossButton1.onClick.AddListener(CrossButton);
 
@@ -232,149 +215,13 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
               case 21:
                     FinalWages.gameObject.SetActive(false);
+                    MainGameManager.Instance.ResetTask();
+                    StartCoroutine(ChangeScene());
                     break;
               case 22:
                     textPanal.gameObject.SetActive(false);
                     break;
-                    /*
-          case 21:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(EnableCross());
-              break;
-          case 22:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(EnableCross());
-              break;
-          case 23:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(EnableCross());
-              break;
-          case 24:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(EnableCross());
-              break;
-          case 25:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(EnableCross());
-              break;
-          case 26:
-              playerCont.moveSpeed = 0;
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              journalFWD.gameObject.SetActive(true);
-              journalBCK.gameObject.SetActive(true);
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 27:
-              playerCont.moveSpeed = 0;
-              taskPanal.gameObject.SetActive(false);
-              task2.gameObject.SetActive(false);
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 28: // diagram text
-              playerCont.moveSpeed = 0;
-              if (!submitTwice)
-              {
-                  LOLSDK.Instance.SubmitProgress(0, 15, 100);
-                  submitTwice = true;
-              }
-              concept2GeoProcess.gameObject.SetActive(true);
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              diagram.gameObject.SetActive(true);
-              // StartCoroutine(MoveToBlankInvislbePanalUnit172());
-              break;
-          case 29: // incorrect
-              StartCoroutine(MoveToQuestion());
-              textPanal.gameObject.SetActive(true);
-              //StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 30: // correct first
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 31: // all correct
-              StartCoroutine(DelayTextButton());
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 32:
-              backwardsButton.gameObject.SetActive(true);
-              //arrow.gameObject.SetActive(false);
-              diagram.gameObject.SetActive(false);
-              taskPanal.gameObject.SetActive(true);
-              task3.gameObject.SetActive(true);
-              LOLSDK.Instance.SubmitProgress(0, 20, 100);
-              MainGameManager.Instance.currentTask = 3;
-              MainGameManager.Instance.SaveTaskS1();
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 33:
 
-              break;
-          case 34:
-
-              break;
-          case 35:
-              switchParent.gameObject.SetActive(true);
-
-
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 36: // wrong
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 37:
-              backwardsButton.gameObject.SetActive(false);
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 38:
-              backwardsButton.gameObject.SetActive(false);
-
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 39:
-              backwardsButton.gameObject.SetActive(false);
-
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 40:
-              backwardsButton.gameObject.SetActive(false);
-
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 41:
-              backwardsButton.gameObject.SetActive(false);
-
-              textPanal.gameObject.SetActive(true);
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              break;
-          case 42:
-              backwardsButton.gameObject.SetActive(false);
-
-              StartCoroutine(MoveToBlankInvislbePanalUnit17());
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 43:
-              textPanal.gameObject.SetActive(true);
-              break;
-          case 44:
-              textPanal.gameObject.SetActive(false);
-              break;
-
-
-              */
 
             }
         }
@@ -555,6 +402,13 @@ namespace Alpha.Phases.Rounding.Roundup
             arrayPos = 20;
             playerCont.moveSpeed = 5;
             crossButton1.gameObject.SetActive(false);
+        }
+
+
+        public IEnumerator ChangeScene()
+        {
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene("Stage 2 newspapers");
         }
 
     }
