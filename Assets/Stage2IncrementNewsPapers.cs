@@ -18,7 +18,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 if (!runOnce)
                 {
                     wageMan.wagesValue +=56;
-                    stepMan.amountOfDoorsteps++;
+                    stepMan.AddDoorstep();
                     strikeImage.gameObject.SetActive(true);
                     doorStepTrigger.enabled = false;
                     runOnce = true;

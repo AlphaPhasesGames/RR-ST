@@ -15,9 +15,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public int maxLengthArray;
         public int minLengthArray = 0;
         public bool positionChanged;
-
+        public GameObject barriers;
+        public GameObject compass;
         public bool runThrice;
-
+        public NewsPaperThrow newsPaper;
 
         public GameObject[] modelArray;
         public GameObject textPanal;
@@ -31,6 +32,9 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public bool submitOnce;
         public bool submitTwice;
+        public bool submitThrice;
+        public bool submitFourth;
+
         public Button forwardButton;
         public Button backwardsButton;
 
@@ -141,6 +145,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 case 5:
                     textPanal.gameObject.SetActive(true);
                     playerCont.moveSpeed = 5;
+                    newsPaper.enabled = true;
                     StartCoroutine(EnableCross());
                     break;
                 case 6:
@@ -159,35 +164,72 @@ namespace Alpha.Phases.Rounding.Roundup
                     wagesSide.gameObject.SetActive(false);
                     FinalWages.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(true);
+                    if (!submitTwice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 70, 100);
+                        submitOnce = true;
+                    }
                     break;
                 case 10:
                     textPanal.gameObject.SetActive(true);
+                 
                     break;
                 case 11:
                     textPanal.gameObject.SetActive(true);
+                    FinalWages.gameObject.SetActive(false);
+                    barriers.gameObject.SetActive(false);
+                    compass.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 12:
                     //  text13.gameObject.SetActive(false);
                     //  text18.gameObject.SetActive(true);
-                    FinalWages.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
+                    if (!submitThrice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 80, 100);
+                        submitThrice = true;
+                    }
+                    StartCoroutine(DelayTextButton());
                     break;
                 case 13:
-                    textPanal.gameObject.SetActive(false);
+                  
                    
                     break;
-               
+                case 14:
+                 
+
+                    break;
+                case 15:
+                    StartCoroutine(EnableCross());
+
+                    break;
+                case 16:
+                    textPanal.gameObject.SetActive(true);
+
+                    break;
+                case 17:
+                    textPanal.gameObject.SetActive(true);
+
+                    break;
+                case 18:
+                    textPanal.gameObject.SetActive(false);
+                    if (!submitThrice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 100, 100);
+                        LOLSDK.Instance.CompleteGame();
+                        submitThrice = true;
+                    }
+                    break;
 
             }
         }
 
         public void IntroTTSSpeak(int textIndex)
         {
-            string textKey = $"stage1Text{textIndex}";
+            string textKey = $"stage2Text{textIndex}";
             LOLSDK.Instance.SpeakText(textKey);
-            Debug.Log($"stage1Text{textIndex} Button is pressed");
+            Debug.Log($"stage2Text{textIndex} Button is pressed");
         }
 
 
@@ -201,7 +243,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 && arrayPos != 6 && arrayPos != 5 && arrayPos != 9 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
+                if (arrayPos != 2 && arrayPos != 6 && arrayPos != 5 && arrayPos != 9 && arrayPos != 11 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -232,65 +274,6 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             LOLSDK.Instance.SpeakText(textKey);
         }
-        public void SpeakAllLitterText2()
-        {
-            LOLSDK.Instance.SpeakText("stage1TextAllBottlesCollected");
-        }
-
-        public void SpeakPaper1()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep1");
-        }
-
-        public void SpeakPaper2()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep2");
-        }
-
-        public void SpeakPaper3()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep3");
-        }
-
-        public void SpeakPaper4()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep4");
-        }
-
-        public void SpeakPaper5()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep5");
-        }
-
-        public void SpeakPaper6()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep6");
-        }
-
-        public void SpeakPaper7()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep7");
-        }
-
-        public void SpeakJournal1Process()
-        {
-            LOLSDK.Instance.SpeakText("concept1Process");
-        }
-
-        public void SpeakJournal2GeoProcess()
-        {
-            LOLSDK.Instance.SpeakText("concept2GeoProcess");
-        }
-
-        public void SpeakJournal3Rock()
-        {
-            LOLSDK.Instance.SpeakText("concept3Rock");
-        }
-
-        public void SpeakJournal4RegMeta()
-        {
-            LOLSDK.Instance.SpeakText("concept4RegionalMeta");
-        }
 
         public void ResetBools()
         {
@@ -300,7 +283,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(4.5f);
 
             forwardButton.gameObject.SetActive(true);
 
@@ -356,7 +339,7 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             textPanal.gameObject.SetActive(false);
             positionChanged = true;
-            arrayPos = 13;
+            arrayPos = 18;
             playerCont.moveSpeed = 5;
             crossButton1.gameObject.SetActive(false);
         }

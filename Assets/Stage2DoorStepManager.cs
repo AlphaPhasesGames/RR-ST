@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 namespace Alpha.Phases.Rounding.Roundup
 {
@@ -11,26 +7,20 @@ namespace Alpha.Phases.Rounding.Roundup
         public int amountOfDoorsteps;
         public Stage2TextManager textMan;
 
-
-        public bool runOnce;
-
-        private void Update()
-        {
-            if (amountOfDoorsteps >= 5 && !runOnce)
-            {
-                runOnce = true;
-                AddDoorstep();
-            }
-        }
-
         public void AddDoorstep()
         {
             amountOfDoorsteps++;
 
-            if (amountOfDoorsteps >= 5)
+            if (amountOfDoorsteps == 5)
             {
                 textMan.positionChanged = true;
                 textMan.arrayPos = 8;
+            }
+
+            if (amountOfDoorsteps == 10)
+            {
+                textMan.positionChanged = true;
+                textMan.arrayPos = 17;
             }
         }
     }

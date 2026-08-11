@@ -7,8 +7,9 @@ namespace Alpha.Phases.Rounding.Roundup
     {
         [Header("References")]
         [SerializeField] private GameObject mapPanel;
+        [SerializeField] private GameObject mapPanel2;
         [SerializeField] private Button mapButton;
-
+        public bool map2Open;
         private void Awake()
         {
             if (mapButton != null)
@@ -45,8 +46,14 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             if (mapPanel == null)
                 return;
-
-            mapPanel.SetActive(!mapPanel.activeSelf);
+            if (!map2Open)
+            {
+                mapPanel.SetActive(!mapPanel.activeSelf);
+            }
+            else if (map2Open)
+            {
+                mapPanel2.SetActive(!mapPanel2.activeSelf);
+            }
         }
 
         public void OpenMap()

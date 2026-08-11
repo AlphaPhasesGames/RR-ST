@@ -20,6 +20,11 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI stage1Text11;
         public TextMeshProUGUI stage1Text12;
         public TextMeshProUGUI stage1Text13;
+        public TextMeshProUGUI stage1Text14;
+        public TextMeshProUGUI stage1Text15;
+        public TextMeshProUGUI stage1Text16;
+        public TextMeshProUGUI stage1Text17;
+        public TextMeshProUGUI stage1Text18;
 
 
         public TextMeshProUGUI deliverySign1;
@@ -54,6 +59,11 @@ namespace Alpha.Phases.Rounding.Roundup
             stage1Text11.text = defs["stage2Text11"];
             stage1Text12.text = defs["stage2Text12"];
             stage1Text13.text = defs["stage2Text13"];
+            stage1Text14.text = defs["stage2Text14"];
+            stage1Text15.text = defs["stage2Text15"];
+            stage1Text16.text = defs["stage2Text16"];
+            stage1Text17.text = defs["stage2Text17"];
+            stage1Text18.text = defs["stage2Text18"];
 
             deliverySign1.text = defs["stage2BuildingName"];
             deliverySign2.text = defs["stage2BuildingName"];

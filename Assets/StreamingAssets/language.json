@@ -39,7 +39,13 @@
       "stage2Text9": 120,
       "stage2Text10": 180,
       "stage2Text11": 190,
-      "stage2Text12": 200
+      "stage2Text12": 200,
+      "stage2Text13": 130,
+      "stage2Text14": 180,
+      "stage2Text15": 150,
+      "stage2Text16": 110,
+      "stage2Text17": 100,
+      "stage2Text18": 110
 
     }
   },
@@ -82,7 +88,13 @@
       "stage2Text9": "Great job! That's all the newspapers delivered. Now let’s look at your wages. Can you round them to the nearest 100?",
       "stage2Text10": "Type your answer into the text box.",
       "stage2Text11": "That’s not correct. Try again.",
-      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries."
+      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries.",
+      "stage2Text13": "Here we are on the final street of our newspaper round. Each building on this street contains 1,000 apartments.",
+      "stage2Text14": "I've updated your delivery list with five new apartment numbers. This time, you'll need to round each number to the nearest 1,000 to find the correct building.",
+      "stage2Text15": "Remember, if the hundred digit is 5 or more, we round up to the next 1,000. For example, apartment 1,500 is rounded up to 2,000.",
+      "stage2Text16": "Throw the newspaper onto the correct doorstep to complete the delivery. Off you go!",
+      "stage2Text17": "Excellent work! Let’s round the end of day's wages, up or down, to the nearest 1000.",
+      "stage2Text18": "That's all our deliveries done. Well done. You were an excellent postbot. Thank you for your hard work."
   },
   "es": {
       "newGame": "New Game",
@@ -123,7 +135,13 @@
       "stage2Text9": "Great job! That's all the newspapers delivered. Now let’s look at your wages. Can you round them to the nearest 100?",
       "stage2Text10": "Type your answer into the text box.",
       "stage2Text11": "That’s not correct. Try again.",
-      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries."
+      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries.",
+      "stage2Text13": "Here we are on the final street of our newspaper round. Each building on this street contains 1,000 apartments.",
+      "stage2Text14": "I've updated your delivery list with five new apartment numbers. This time, you'll need to round each number to the nearest 1,000 to find the correct building.",
+      "stage2Text15": "Remember, if the hundred digit is 5 or more, we round up to the next 1,000. For example, apartment 1,500 is rounded up to 2,000.",
+      "stage2Text16": "Throw the newspaper onto the correct doorstep to complete the delivery. Off you go!",
+      "stage2Text17": "Excellent work! Let’s round the end of day's wages, up or down, to the nearest 1000.",
+      "stage2Text18": "That's all our deliveries done. Well done. You were an excellent postbot. Thank you for your hard work."
   },
   "ru": {
       "newGame": "New Game",
@@ -164,6 +182,12 @@
       "stage2Text9": "Great job! That's all the newspapers delivered. Now let’s look at your wages. Can you round them to the nearest 100?",
       "stage2Text10": "Type your answer into the text box.",
       "stage2Text11": "That’s not correct. Try again.",
-      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries."
+      "stage2Text12": "Excellent work! Let's head to the end of the street and complete our deliveries.",
+       "stage2Text13": "Here we are on the final street of our newspaper round. Each building on this street contains 1,000 apartments.",
+      "stage2Text14": "I've updated your delivery list with five new apartment numbers. This time, you'll need to round each number to the nearest 1,000 to find the correct building.",
+      "stage2Text15": "Remember, if the hundred digit is 5 or more, we round up to the next 1,000. For example, apartment 1,500 is rounded up to 2,000.",
+      "stage2Text16": "Throw the newspaper onto the correct doorstep to complete the delivery. Off you go!",
+      "stage2Text17": "Excellent work! Let’s round the end of day's wages, up or down, to the nearest 1000.",
+      "stage2Text18": "That's all our deliveries done. Well done. You were an excellent postbot. Thank you for your hard work."
   }
 }

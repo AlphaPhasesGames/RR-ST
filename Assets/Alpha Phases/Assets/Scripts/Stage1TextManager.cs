@@ -18,8 +18,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject task1Text;
         public GameObject task2Text;
         public GameObject task3Text;
-        public bool positionChanged; 
-
+        public bool positionChanged;
+        public Button journalButton;
         public bool runThrice;
 
         public GameObject[] modelArray;
@@ -33,6 +33,8 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public bool submitOnce;
         public bool submitTwice;
+        public bool submitThrice;
+        public bool submitFourth;
         public Button forwardButton;
         public Button backwardsButton;
 
@@ -53,7 +55,7 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
-
+            journalButton.onClick.AddListener(SpeakJournal1);
             crossButton1.onClick.AddListener(CrossButton);
 
 
@@ -158,6 +160,11 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(DelayTextButton());
                     task1Text.gameObject.SetActive(false);
                     task2Text.gameObject.SetActive(true);
+                    if (!submitTwice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 25, 100);
+                        submitTwice = true;
+                    }
                     break;
                    
                 case 9:
@@ -199,6 +206,11 @@ namespace Alpha.Phases.Rounding.Roundup
                     backwardsButton.gameObject.SetActive(false);
                     wagesSide.gameObject.SetActive(false);
                     FinalWages.gameObject.SetActive(true);
+                    if (!submitThrice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 30, 100);
+                        submitThrice = true;
+                    }
                     task2Text.gameObject.SetActive(false);
                     task3Text.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
@@ -216,6 +228,11 @@ namespace Alpha.Phases.Rounding.Roundup
               case 21:
                     FinalWages.gameObject.SetActive(false);
                     MainGameManager.Instance.ResetTask();
+                    if (!submitFourth)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 40, 100);
+                        submitFourth = true;
+                    }
                     StartCoroutine(ChangeScene());
                     break;
               case 22:
@@ -275,60 +292,14 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             LOLSDK.Instance.SpeakText(textKey);
         }
-        public void SpeakAllLitterText2()
+
+
+        public void SpeakJournal1()
         {
-            LOLSDK.Instance.SpeakText("stage1TextAllBottlesCollected");
+            LOLSDK.Instance.SpeakText("stage1Journal");
         }
 
-        public void SpeakPaper1()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep1");
-        }
 
-        public void SpeakPaper2()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep2");
-        }
-
-        public void SpeakPaper3()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep3");
-        }
-
-        public void SpeakPaper4()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep4");
-        }
-
-        public void SpeakPaper5()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep5");
-        }
-
-        public void SpeakPaper6()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep6");
-        }
-
-        public void SpeakPaper7()
-        {
-            LOLSDK.Instance.SpeakText("stage1RCStep7");
-        }
-
-        public void SpeakJournal1Process()
-        {
-            LOLSDK.Instance.SpeakText("concept1Process");
-        }
-
-        public void SpeakJournal2GeoProcess()
-        {
-            LOLSDK.Instance.SpeakText("concept2GeoProcess");
-        }
-
-        public void SpeakJournal3Rock()
-        {
-            LOLSDK.Instance.SpeakText("concept3Rock");
-        }
 
         public void SpeakJournal4RegMeta()
         {
@@ -343,7 +314,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(4.5f);
           
             forwardButton.gameObject.SetActive(true);
 
@@ -377,7 +348,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public IEnumerator StartStage1()
         {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2);
 
             textPanal.gameObject.SetActive(true);
 
@@ -389,7 +360,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public IEnumerator EnableCross()
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(4.5f);
             crossButton1.gameObject.SetActive(true);
             Debug.Log("This start coRoutine Runs");
         }
