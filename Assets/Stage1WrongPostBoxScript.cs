@@ -6,7 +6,7 @@ namespace Alpha.Phases.Rounding.Roundup
     public class Stage1WrongPostBoxScript : MonoBehaviour
     {
         public bool isInRange;
-
+        public AudioSource wrongSFX;
        // public Animator postBoxAnimation;
         public Stage1TextManager textMan;
     private void Update()
@@ -15,7 +15,7 @@ namespace Alpha.Phases.Rounding.Roundup
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
+                    wrongSFX.Play();
                     textMan.ResetBools();
                     textMan.positionChanged = true;
                     textMan.arrayPos = 13;

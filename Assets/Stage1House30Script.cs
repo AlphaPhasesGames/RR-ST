@@ -23,6 +23,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject numArrow4;
         public GameObject numArrow5;
         public GameObject numArrow6;
+        public AudioSource rightSFX;
+        public AudioSource wrongSFX;
         private void Update()
         {
             if (isInRange && numMan.areWeCarryingNumber)
@@ -35,6 +37,7 @@ namespace Alpha.Phases.Rounding.Roundup
                         textMan.arrayPos = 7;
                         hasFired = true;
                     }
+                    rightSFX.Play();
                     houseNumber.gameObject.SetActive(true);
                     carriedNumber.gameObject.SetActive(false);
                     numMan.areWeCarryingNumber = false;
@@ -55,6 +58,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
             if (isInRange && numMan.areWeCarryingNumber && numMan.houseNumber != placeNum.numberValueCarrying)
             {
+                wrongSFX.Play();
                 textMan.ResetBools();
                 textMan.positionChanged = true;
                 textMan.arrayPos = 6;

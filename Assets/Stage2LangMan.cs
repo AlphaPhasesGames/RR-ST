@@ -38,6 +38,17 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI deliverySign9;
         public TextMeshProUGUI deliverySign10;
 
+        public TextMeshProUGUI deliverySign11;
+        public TextMeshProUGUI deliverySign12;
+        public TextMeshProUGUI deliverySign13;
+        public TextMeshProUGUI deliverySign14;
+        public TextMeshProUGUI deliverySign15;
+        public TextMeshProUGUI deliverySign16;
+        public TextMeshProUGUI deliverySign17;
+        public TextMeshProUGUI deliverySign18;
+        public TextMeshProUGUI deliverySign19;
+        public TextMeshProUGUI deliverySign20;
+
         public TextMeshProUGUI journalPage1;
 
 
@@ -75,6 +86,17 @@ namespace Alpha.Phases.Rounding.Roundup
             deliverySign8.text = defs["stage2BuildingName"];
             deliverySign9.text = defs["stage2BuildingName"];
             deliverySign10.text = defs["stage2BuildingName"];
+
+            deliverySign11.text = defs["stage2BuildingName"];
+            deliverySign12.text = defs["stage2BuildingName"];
+            deliverySign13.text = defs["stage2BuildingName"];
+            deliverySign14.text = defs["stage2BuildingName"];
+            deliverySign15.text = defs["stage2BuildingName"];
+            deliverySign16.text = defs["stage2BuildingName"];
+            deliverySign17.text = defs["stage2BuildingName"];
+            deliverySign18.text = defs["stage2BuildingName"];
+            deliverySign19.text = defs["stage2BuildingName"];
+            deliverySign20.text = defs["stage2BuildingName"];
 
             journalPage1.text = defs["stage1Journal"];
         }

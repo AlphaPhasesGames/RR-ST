@@ -148,7 +148,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
                 case 6:
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
+                    MoveToBlankInvislbePanalUnit17();
                     break;
                 case 7:
                     depotArrow.gameObject.SetActive(false);
@@ -157,6 +157,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
                 case 8:
                     textPanal.gameObject.SetActive(true);
+                    crossButton1.gameObject.SetActive(false);
                     StartCoroutine(DelayTextButton());
                     task1Text.gameObject.SetActive(false);
                     task2Text.gameObject.SetActive(true);
@@ -328,8 +329,8 @@ namespace Alpha.Phases.Rounding.Roundup
             yield return new WaitForSeconds(7);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 20;
-            playerCont.moveSpeed = 5;
+            arrayPos = 22;
+            //playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
         }

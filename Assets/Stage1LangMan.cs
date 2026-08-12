@@ -9,6 +9,10 @@ namespace Alpha.Phases.Rounding.Roundup
     public class Stage1LangMan : MonoBehaviour
     {
 
+        public TextMeshProUGUI stage1Task1;
+        public TextMeshProUGUI stage1Task2;
+        public TextMeshProUGUI stage1Task3;
+
         public TextMeshProUGUI stage1Text1;
         public TextMeshProUGUI stage1Text2;
         public TextMeshProUGUI stage1Text3;
@@ -43,6 +47,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI deliverySign9;
         public TextMeshProUGUI deliverySign10;
 
+        public TextMeshProUGUI deliverySignUI1;
+        public TextMeshProUGUI deliverySignUI2;
+
         public TextMeshProUGUI journalPage1;
 
 
@@ -50,6 +57,9 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             JSONNode defs = SharedState.LanguageDefs;
 
+                        stage1Task1.text = defs["stage1Task1"];
+                        stage1Task2.text = defs["stage1Task2"];
+                        stage1Task3.text = defs["stage1Task3"];
 
                         stage1Text1.text = defs["stage1Text1"];
                         stage1Text2.text = defs["stage1Text2"];
@@ -86,6 +96,9 @@ namespace Alpha.Phases.Rounding.Roundup
                         deliverySign10.text = defs["deliveryZone"];
 
                         journalPage1.text = defs["stage1Journal"];
+
+                        deliverySignUI1.text = defs["deliveryZone"];
+                        deliverySignUI2.text = defs["deliveryZone"];
         }
 
     }

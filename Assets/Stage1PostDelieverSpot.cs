@@ -10,7 +10,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public Stage1NumberManager numMan;
         public Stage1TextManager textMan;
         public Stage1WagesManager wages;
-       // public GameObject ethylTrigger;
+        public AudioSource WrongSFX;
+        public AudioSource correctSFX;
+        // public GameObject ethylTrigger;
         private void Update()
         {
             if (isInRange)
@@ -19,6 +21,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 {
                     if (numMan.numberOnletter == 11)
                     {
+                        correctSFX.Play();
                         textMan.positionChanged = true;
                         textMan.arrayPos = 12;
                         numMan.numberOnletter = 55;
@@ -29,6 +32,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
                     else if (numMan.numberOnletter != 11)
                     {
+                        WrongSFX.Play();
                         textMan.ResetBools();
                         textMan.positionChanged = true;
                         textMan.arrayPos = 13;

@@ -11,12 +11,14 @@ namespace Alpha.Phases.Rounding.Roundup
         public bool runOnce;
         public GameObject strikeImage;
         public BoxCollider doorStepTrigger;
+        public AudioSource correctSFX;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Newspaper"))
             {
                 if (!runOnce)
                 {
+                    correctSFX.Play();
                     wageMan.wagesValue +=56;
                     stepMan.AddDoorstep();
                     strikeImage.gameObject.SetActive(true);

@@ -10,6 +10,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public Stage1NumberManager numMan;
         public Stage1TextManager textMan;
         public Stage1WagesManager wages;
+        public AudioSource WrongSFX;
+        public AudioSource correctSFX;
         private void Update()
         {
             if (isInRange)
@@ -18,6 +20,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 {
                     if (numMan.numberOnletter == 55)
                     {
+                        correctSFX.Play();
                         textMan.positionChanged = true;
                         textMan.arrayPos = 15;
                         wages.wagesValue += 2;
@@ -31,6 +34,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     else if (numMan.numberOnletter != 55)
                     {
                         textMan.ResetBools();
+                        WrongSFX.Play();
                         textMan.positionChanged = true;
                         textMan.arrayPos = 13;
                     }

@@ -9,10 +9,12 @@ namespace Alpha.Phases.Rounding.Roundup
     {
         // public int DoorstepValue;
         public Stage2TextManager textMan;
+        public AudioSource wrongSFX;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Newspaper"))
             {
+                    wrongSFX.Play();
                     textMan.ResetBools();
                     textMan.positionChanged = true;
                     textMan.arrayPos = 7;  

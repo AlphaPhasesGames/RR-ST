@@ -22,7 +22,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public GameObject[] modelArray;
         public GameObject textPanal;
-        //public ArrowPointer arrow;
+        public GameObject arrow;
 
         public GameObject numberLine;
 
@@ -133,6 +133,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(EnableCross());
                     break;
                 case 3:
+                    arrow.gameObject.SetActive(false);
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     playerCont.moveSpeed = 0;
