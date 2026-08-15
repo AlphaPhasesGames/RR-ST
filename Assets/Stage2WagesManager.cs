@@ -20,11 +20,15 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private int playerAnswer;
 
+        // Remembers whether we are currently rounding to 1000s.
+        private bool roundingToThousands;
+
         private void Start()
         {
             wagesInput.contentType = TMP_InputField.ContentType.IntegerNumber;
 
-            wagesInput.characterLimit = 3;
+            // Allows values such as 1000 and 10000.
+            wagesInput.characterLimit = 5;
 
             wagesInput.onValueChanged.AddListener(OnInputChanged);
             wagesInput.onSubmit.AddListener(OnInputSubmitted);
@@ -37,9 +41,21 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private void Update()
         {
-            onScreenValue.text = wagesValue.ToString();
-            onScreenValue2.text = wagesValue.ToString();
+            UpdateWagesText();
+
+            // First wages section: round to nearest 100.
+            if (textMan.arrayPos == 9)
+            {
+                roundingToThousands = false;
+            }
+
+            // Second wages section: round to nearest 1000.
+            if (textMan.arrayPos == 16)
+            {
+                roundingToThousands = true;
+            }
         }
+
         private void OnDestroy()
         {
             if (wagesInput != null)
@@ -89,14 +105,47 @@ namespace Alpha.Phases.Rounding.Roundup
                 return;
             }
 
-            int correctRoundedAnswer =
-                Mathf.RoundToInt(wagesValue / 100f) * 100;
+            int correctRoundedAnswer;
+
+            if (roundingToThousands)
+            {
+                // Round to nearest 1000.
+                // Adding 500 ensures values ending in 500 round UP.
+                correctRoundedAnswer =
+                    ((wagesValue + 500) / 1000) * 1000;
+            }
+            else
+            {
+                // Round to nearest 100.
+                // Adding 50 ensures values ending in 50 round UP.
+                correctRoundedAnswer =
+                    ((wagesValue + 50) / 100) * 100;
+            }
+
+            Debug.Log(
+                "Wages: " + wagesValue +
+                " | Thousands Mode: " + roundingToThousands +
+                " | Correct Answer: " + correctRoundedAnswer +
+                " | Player Answer: " + playerAnswer
+            );
 
             if (playerAnswer == correctRoundedAnswer)
             {
                 textMan.ResetBools();
                 textMan.positionChanged = true;
-                textMan.arrayPos = 11;
+
+                if (roundingToThousands)
+                {
+                    // Correct thousands answer.
+                    textMan.arrayPos = 17;
+                }
+                else
+                {
+                    // Correct hundreds answer.
+                    textMan.arrayPos = 11;
+                }
+
+                wagesInput.text = string.Empty;
 
                 Debug.Log("Correct wages rounding!");
             }
@@ -108,7 +157,11 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private void ShowIncorrectFeedback()
         {
+            textMan.ResetBools();
             textMan.positionChanged = true;
+
+            // At the moment both sections use array position 10
+            // for incorrect feedback.
             textMan.arrayPos = 10;
 
             Debug.Log("Try again!");

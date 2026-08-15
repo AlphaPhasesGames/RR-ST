@@ -12,6 +12,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject strikeImage;
         public BoxCollider doorStepTrigger;
         public AudioSource correctSFX;
+        public int wagesGiven;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Newspaper"))
@@ -19,7 +20,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 if (!runOnce)
                 {
                     correctSFX.Play();
-                    wageMan.wagesValue +=56;
+                    wageMan.wagesValue +=wagesGiven;
                     stepMan.AddDoorstep();
                     strikeImage.gameObject.SetActive(true);
                     doorStepTrigger.enabled = false;

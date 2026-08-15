@@ -10,6 +10,7 @@ namespace Alpha.Phases.Rounding.Roundup
         // public int DoorstepValue;
         public Stage2TextManager textMan;
         public AudioSource wrongSFX;
+        public int arrayPosition;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Newspaper"))
@@ -17,7 +18,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     wrongSFX.Play();
                     textMan.ResetBools();
                     textMan.positionChanged = true;
-                    textMan.arrayPos = 7;  
+                    textMan.arrayPos = arrayPosition;  
             }
         }
 

@@ -49,7 +49,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI deliverySign19;
         public TextMeshProUGUI deliverySign20;
 
+        public TextMeshProUGUI deliveryAddresses;
+
         public TextMeshProUGUI journalPage1;
+        public TextMeshProUGUI journalPage2;
 
 
         private void Awake()
@@ -98,7 +101,10 @@ namespace Alpha.Phases.Rounding.Roundup
             deliverySign19.text = defs["stage2BuildingName"];
             deliverySign20.text = defs["stage2BuildingName"];
 
-            journalPage1.text = defs["stage1Journal"];
+            journalPage1.text = defs["stage2Journal1"];
+            journalPage2.text = defs["stage2Journal2"];
+
+            deliveryAddresses.text = defs["deliveryZoneStage2"];
         }
 
     }

@@ -20,7 +20,7 @@ namespace Alpha.Phases.Rounding.Roundup
             if (amountOfDoorsteps == 10)
             {
                 textMan.positionChanged = true;
-                textMan.arrayPos = 17;
+                textMan.arrayPos = 16;
             }
         }
     }

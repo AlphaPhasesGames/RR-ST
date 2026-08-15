@@ -13,6 +13,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject numberList1;
         public GameObject numberList2;
         public MapButtonOpen map;
+        public GameObject journal2;
+        public GameObject wagesSide;
+        public Stage2WagesManager wagesMan;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -24,6 +27,9 @@ namespace Alpha.Phases.Rounding.Roundup
                 city2Trigger.gameObject.SetActive(false);
                 numberList1.gameObject.SetActive(false);
                 numberList2.gameObject.SetActive(true);
+                journal2.gameObject.SetActive(true);
+                wagesSide.gameObject.SetActive(true);
+                wagesMan.wagesValue = 0;
                 map.map2Open = true;
             }
         }

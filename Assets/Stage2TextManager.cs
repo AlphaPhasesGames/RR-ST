@@ -19,7 +19,8 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject compass;
         public bool runThrice;
         public NewsPaperThrow newsPaper;
-
+        public Animator fadeToBlack;
+        public GameObject fadeBlack;
         public GameObject[] modelArray;
         public GameObject textPanal;
         public GameObject arrow;
@@ -48,6 +49,7 @@ namespace Alpha.Phases.Rounding.Roundup
         */
         public GameObject wagesSide;
         public GameObject FinalWages;
+        public GameObject FinalWages2;
 
         public Button crossButton1;
 
@@ -159,11 +161,13 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
                 case 8:
                     textPanal.gameObject.SetActive(true);
+                    DisableCross();
                     StartCoroutine(DelayTextButton());
                     break;
                 case 9:
                     wagesSide.gameObject.SetActive(false);
                     FinalWages.gameObject.SetActive(true);
+                    DisableCross();
                     backwardsButton.gameObject.SetActive(true);
                     if (!submitTwice)
                     {
@@ -172,8 +176,9 @@ namespace Alpha.Phases.Rounding.Roundup
                     }
                     break;
                 case 10:
+                    ResetBools();
                     textPanal.gameObject.SetActive(true);
-                 
+                    StartCoroutine(EnableCross());
                     break;
                 case 11:
                     textPanal.gameObject.SetActive(true);
@@ -186,6 +191,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     //  text13.gameObject.SetActive(false);
                     //  text18.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
+                    DisableCross();
                     if (!submitThrice)
                     {
                         LOLSDK.Instance.SubmitProgress(0, 80, 100);
@@ -206,21 +212,27 @@ namespace Alpha.Phases.Rounding.Roundup
 
                     break;
                 case 16:
+                    wagesSide.gameObject.SetActive(false);
+                    FinalWages.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
 
                     break;
                 case 17:
                     textPanal.gameObject.SetActive(true);
-
-                    break;
-                case 18:
-                    textPanal.gameObject.SetActive(false);
-                    if (!submitThrice)
+                    FinalWages.gameObject.SetActive(false);
+                    StartCoroutine(FadeBlack());
+                    if (!submitFourth)
                     {
                         LOLSDK.Instance.SubmitProgress(0, 100, 100);
                         LOLSDK.Instance.CompleteGame();
-                        submitThrice = true;
+
+
+                        submitFourth = true;
                     }
+                    break;
+                case 18:
+                    textPanal.gameObject.SetActive(false);
+
                     break;
 
             }
@@ -334,7 +346,11 @@ namespace Alpha.Phases.Rounding.Roundup
             crossButton1.gameObject.SetActive(true);
             Debug.Log("This start coRoutine Runs");
         }
+        public void DisableCross()
+        {
 
+            crossButton1.gameObject.SetActive(false);
+        }
 
         public void CrossButton()
         {
@@ -344,6 +360,11 @@ namespace Alpha.Phases.Rounding.Roundup
             playerCont.moveSpeed = 5;
             crossButton1.gameObject.SetActive(false);
         }
-
+         public IEnumerator FadeBlack()
+        {
+            yield return new WaitForSeconds(5);
+            fadeBlack.gameObject.SetActive(true);
+            fadeToBlack.SetBool("Fade", true);
+        }
     }
 }
