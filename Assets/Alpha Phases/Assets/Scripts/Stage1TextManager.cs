@@ -9,6 +9,7 @@ namespace Alpha.Phases.Rounding.Roundup
     public class Stage1TextManager : MonoBehaviour
     {
         public SimpleRobotMovement playerCont;
+        public JournalOpenButton journalOpen;
         public bool hasScrolled;
         public GameObject currentTextSection;
         public int arrayPos;
@@ -21,6 +22,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public bool positionChanged;
         public Button journalButton;
         public bool runThrice;
+
+        public Camera playerCam;
+        public Camera streetCam;
+
 
         public GameObject[] modelArray;
         public GameObject textPanal;
@@ -123,6 +128,8 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
 
                 case 1:
+                    playerCam.gameObject.SetActive(false);
+                    streetCam.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(true);
                      break;
                 case 2:
@@ -131,6 +138,8 @@ namespace Alpha.Phases.Rounding.Roundup
                     task1Text.gameObject.SetActive(true);
                     break;
                 case 3:
+                    playerCam.gameObject.SetActive(true);
+                    streetCam.gameObject.SetActive(false);
                     StartCoroutine(EnableCross());
                     break;
                 case 4:
@@ -148,7 +157,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     break;
                 case 6:
                     textPanal.gameObject.SetActive(true);
-                    MoveToBlankInvislbePanalUnit17();
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 7:
                     depotArrow.gameObject.SetActive(false);
@@ -161,7 +170,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(DelayTextButton());
                     task1Text.gameObject.SetActive(false);
                     task2Text.gameObject.SetActive(true);
-                    if (!submitTwice)
+                    playerCont.moveSpeed = 0;
                     {
                         LOLSDK.Instance.SubmitProgress(0, 25, 100);
                         submitTwice = true;
@@ -174,7 +183,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     backwardsButton.gameObject.SetActive(true);
                     break;
                 case 10:
-
+                    //journalOpen.OpenMap();
 
                     break;
                 case 11:
@@ -184,10 +193,13 @@ namespace Alpha.Phases.Rounding.Roundup
                     text13.gameObject.SetActive(false);
                     text18.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
                     StartCoroutine(EnableCross());
                     break;
                 case 13:
                     textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
                     StartCoroutine(EnableCross());
                     break;                    
                case 14:
@@ -195,7 +207,9 @@ namespace Alpha.Phases.Rounding.Roundup
                   
                     break;
                case 15:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
+                    playerCont.moveSpeed = 0;
                     StartCoroutine(EnableCross());
                     break;
                case 16:
@@ -205,8 +219,8 @@ namespace Alpha.Phases.Rounding.Roundup
               case 17:
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
-                    wagesSide.gameObject.SetActive(false);
-                    FinalWages.gameObject.SetActive(true);
+                    DisableCross();
+
                     if (!submitThrice)
                     {
                         LOLSDK.Instance.SubmitProgress(0, 30, 100);
@@ -221,10 +235,13 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(DelayTextButton());
                     break;                   
               case 19: // rock cycle steps -
+                    wagesSide.gameObject.SetActive(false);
+                    FinalWages.gameObject.SetActive(true);
                     numberLine.gameObject.SetActive(false);
 
                     break;
               case 20:
+                    backwardsButton.gameObject.SetActive(false);
                     break;
               case 21:
                     FinalWages.gameObject.SetActive(false);
@@ -262,7 +279,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 3 && arrayPos != 4 && arrayPos != 5 && arrayPos != 6 && arrayPos != 7 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
+                if (arrayPos != 3 && arrayPos != 4 && arrayPos != 5 && arrayPos != 6 && arrayPos != 7 && arrayPos != 11 && arrayPos != 12 && arrayPos != 13 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19 && arrayPos != 20 && arrayPos != 21)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -299,7 +316,11 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             LOLSDK.Instance.SpeakText("stage1Journal");
         }
+        public void DisableCross()
+        {
 
+            crossButton1.gameObject.SetActive(false);
+        }
 
 
         public void SpeakJournal4RegMeta()
@@ -326,7 +347,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public IEnumerator MoveToBlankInvislbePanalUnit17()
         {
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(4);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 22;
@@ -341,7 +362,7 @@ namespace Alpha.Phases.Rounding.Roundup
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
-            playerCont.moveSpeed = 5;
+            playerCont.moveSpeed = 8;
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -372,7 +393,7 @@ namespace Alpha.Phases.Rounding.Roundup
             textPanal.gameObject.SetActive(false);
             positionChanged = true;
             arrayPos = 20;
-            playerCont.moveSpeed = 5;
+            playerCont.moveSpeed = 8;
             crossButton1.gameObject.SetActive(false);
         }
 

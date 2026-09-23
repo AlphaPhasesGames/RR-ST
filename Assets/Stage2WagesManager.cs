@@ -13,7 +13,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI onScreenValue;
         public TextMeshProUGUI onScreenValue2;
         public Stage2TextManager textMan;
-
+        private bool incorrectAnswerShown;
         [Header("Player Answer UI")]
         [SerializeField] private TMP_InputField wagesInput;
         [SerializeField] private Button submitButton;
@@ -47,12 +47,18 @@ namespace Alpha.Phases.Rounding.Roundup
             if (textMan.arrayPos == 9)
             {
                 roundingToThousands = false;
+
+                // Player can submit again after incorrect feedback.
+                incorrectAnswerShown = false;
             }
 
             // Second wages section: round to nearest 1000.
             if (textMan.arrayPos == 16)
             {
                 roundingToThousands = true;
+
+                // Player can submit again here too.
+                incorrectAnswerShown = false;
             }
         }
 
@@ -85,6 +91,10 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private void OnInputChanged(string value)
         {
+            // The player has changed their answer,
+            // so allow another submission.
+            incorrectAnswerShown = false;
+
             if (int.TryParse(value, out int result))
             {
                 playerAnswer = result;
@@ -98,6 +108,10 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private void SubmitAnswer()
         {
+            // Prevent another submission while incorrect feedback is being shown.
+            if (incorrectAnswerShown)
+                return;
+
             if (string.IsNullOrWhiteSpace(wagesInput.text) ||
                 !int.TryParse(wagesInput.text, out playerAnswer))
             {
@@ -109,39 +123,29 @@ namespace Alpha.Phases.Rounding.Roundup
 
             if (roundingToThousands)
             {
-                // Round to nearest 1000.
-                // Adding 500 ensures values ending in 500 round UP.
                 correctRoundedAnswer =
                     ((wagesValue + 500) / 1000) * 1000;
             }
             else
             {
-                // Round to nearest 100.
-                // Adding 50 ensures values ending in 50 round UP.
                 correctRoundedAnswer =
                     ((wagesValue + 50) / 100) * 100;
             }
 
-            Debug.Log(
-                "Wages: " + wagesValue +
-                " | Thousands Mode: " + roundingToThousands +
-                " | Correct Answer: " + correctRoundedAnswer +
-                " | Player Answer: " + playerAnswer
-            );
-
             if (playerAnswer == correctRoundedAnswer)
             {
+                // Allow normal progression again.
+                incorrectAnswerShown = false;
+
                 textMan.ResetBools();
                 textMan.positionChanged = true;
 
                 if (roundingToThousands)
                 {
-                    // Correct thousands answer.
                     textMan.arrayPos = 17;
                 }
                 else
                 {
-                    // Correct hundreds answer.
                     textMan.arrayPos = 11;
                 }
 
@@ -157,11 +161,14 @@ namespace Alpha.Phases.Rounding.Roundup
 
         private void ShowIncorrectFeedback()
         {
+            // Don't repeatedly fire the incorrect dialogue.
+            if (incorrectAnswerShown)
+                return;
+
+            incorrectAnswerShown = true;
+
             textMan.ResetBools();
             textMan.positionChanged = true;
-
-            // At the moment both sections use array position 10
-            // for incorrect feedback.
             textMan.arrayPos = 10;
 
             Debug.Log("Try again!");

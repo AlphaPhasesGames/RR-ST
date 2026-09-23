@@ -44,16 +44,17 @@ namespace Alpha.Phases.Rounding.Roundup
                 }
             }
 
-            if (isInRange && numMan.areWeCarryingNumber && numMan.houseNumber != placeNum.numberValueCarrying)
+            if (Input.GetKeyDown(KeyCode.E) && isInRange && numMan.areWeCarryingNumber && numMan.houseNumber != placeNum.numberValueCarrying)
             {
                 if (!hasFired)
                 {
                     wrongSFX.Play();
+                    textMan.ResetBools();
+                    textMan.positionChanged = true;
+                    textMan.arrayPos = 6;
                     hasFired = true;
                 }
-                textMan.ResetBools();
-                textMan.positionChanged = true;
-                textMan.arrayPos = 6;
+
             }
         }
 

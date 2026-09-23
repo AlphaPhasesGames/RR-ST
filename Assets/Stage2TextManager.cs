@@ -16,6 +16,7 @@ namespace Alpha.Phases.Rounding.Roundup
         public int minLengthArray = 0;
         public bool positionChanged;
         public GameObject barriers;
+        public GameObject city2;
         public GameObject compass;
         public bool runThrice;
         public NewsPaperThrow newsPaper;
@@ -24,8 +25,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public GameObject[] modelArray;
         public GameObject textPanal;
         public GameObject arrow;
-
-        public GameObject numberLine;
+        public GameObject numLine1;
+        public GameObject numLine2;
+       // public GameObject numberLine;
 
         public bool panalOpen;
         public bool runOnce;
@@ -41,12 +43,14 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public Button[] textButtons;
         public bool[] textBools;
-/*
-        public GameObject deliveryList;
-        public GameObject text13;
-        public GameObject text18;
-        public GameObject text15;
-        */
+
+        public Button journalButton1;
+        public Button journalButton2;
+
+        public GameObject task1;
+        public GameObject task2;
+        public GameObject task3;
+
         public GameObject wagesSide;
         public GameObject FinalWages;
         public GameObject FinalWages2;
@@ -60,7 +64,8 @@ namespace Alpha.Phases.Rounding.Roundup
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
-
+            journalButton1.onClick.AddListener(SpeakJournal1);
+            journalButton2.onClick.AddListener(SpeakJournal2);
             crossButton1.onClick.AddListener(CrossButton);
 
 
@@ -131,7 +136,7 @@ namespace Alpha.Phases.Rounding.Roundup
                     backwardsButton.gameObject.SetActive(true);
                     break;
                 case 2:
-                    numberLine.gameObject.SetActive(true);
+                    //numberLine.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 3:
@@ -152,15 +157,21 @@ namespace Alpha.Phases.Rounding.Roundup
                     StartCoroutine(EnableCross());
                     break;
                 case 6:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 7:
                     textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
+
                 case 8:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
+                    task1.gameObject.SetActive(false);
+                    task2.gameObject.SetActive(true);
                     DisableCross();
                     StartCoroutine(DelayTextButton());
                     break;
@@ -176,21 +187,30 @@ namespace Alpha.Phases.Rounding.Roundup
                     }
                     break;
                 case 10:
+                    backwardsButton.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+
                     ResetBools();
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
                     break;
                 case 11:
+                    task2.gameObject.SetActive(false);
+                    task1.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     FinalWages.gameObject.SetActive(false);
+                    city2.gameObject.SetActive(true);
                     barriers.gameObject.SetActive(false);
                     compass.gameObject.SetActive(true);
-                    StartCoroutine(EnableCross());
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 12:
                     //  text13.gameObject.SetActive(false);
                     //  text18.gameObject.SetActive(true);
+                    playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
+                    numLine1.gameObject.SetActive(false);
+                    numLine2.gameObject.SetActive(true);
                     DisableCross();
                     if (!submitThrice)
                     {
@@ -215,7 +235,8 @@ namespace Alpha.Phases.Rounding.Roundup
                     wagesSide.gameObject.SetActive(false);
                     FinalWages.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
-
+                    task1.gameObject.SetActive(false);
+                    task3.gameObject.SetActive(true);
                     break;
                 case 17:
                     textPanal.gameObject.SetActive(true);
@@ -248,6 +269,14 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public void ProgressTextForward()
         {
+            // Position 10 is failure feedback.
+            // It must NEVER progress manually into position 11.
+            if (arrayPos == 10)
+            {
+                forwardButton.gameObject.SetActive(false);
+                return;
+            }
+
             if (arrayPos < maxLengthArray - 1)
             {
                 arrayPos++;
@@ -256,7 +285,7 @@ namespace Alpha.Phases.Rounding.Roundup
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 && arrayPos != 6 && arrayPos != 5 && arrayPos != 9 && arrayPos != 11 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
+                if (arrayPos != 2 && arrayPos != 6 && arrayPos != 5 && arrayPos != 9 && arrayPos != 10 && arrayPos != 11 && arrayPos != 15 && arrayPos != 16 && arrayPos != 19)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -293,6 +322,16 @@ namespace Alpha.Phases.Rounding.Roundup
             Array.Fill(textBools, false);
         }
 
+        public void SpeakJournal1()
+        {
+            LOLSDK.Instance.SpeakText("stage2Journal1");
+        }
+
+        public void SpeakJournal2()
+        {
+            LOLSDK.Instance.SpeakText("stage2Journal2");
+        }
+
         public IEnumerator DelayTextButton()
         {
 
@@ -311,7 +350,7 @@ namespace Alpha.Phases.Rounding.Roundup
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 20;
-            playerCont.moveSpeed = 5;
+            playerCont.moveSpeed = 8;
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -322,7 +361,7 @@ namespace Alpha.Phases.Rounding.Roundup
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
-            playerCont.moveSpeed = 5;
+            playerCont.moveSpeed = 8;
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -330,7 +369,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public IEnumerator StartStage1()
         {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(1);
 
             textPanal.gameObject.SetActive(true);
 
@@ -357,7 +396,7 @@ namespace Alpha.Phases.Rounding.Roundup
             textPanal.gameObject.SetActive(false);
             positionChanged = true;
             arrayPos = 18;
-            playerCont.moveSpeed = 5;
+            playerCont.moveSpeed = 8;
             crossButton1.gameObject.SetActive(false);
         }
          public IEnumerator FadeBlack()

@@ -54,6 +54,9 @@ namespace Alpha.Phases.Rounding.Roundup
         public TextMeshProUGUI journalPage1;
         public TextMeshProUGUI journalPage2;
 
+        public TextMeshProUGUI task1;
+        public TextMeshProUGUI task2;
+        public TextMeshProUGUI task3;
 
         private void Awake()
         {
@@ -105,6 +108,11 @@ namespace Alpha.Phases.Rounding.Roundup
             journalPage2.text = defs["stage2Journal2"];
 
             deliveryAddresses.text = defs["deliveryZoneStage2"];
+
+            task1.text = defs["stage2Task1"];
+            task2.text = defs["stage2Task2"];
+            task3.text = defs["stage2Task3"];
+
         }
 
     }
