@@ -8,7 +8,8 @@ namespace Alpha.Phases.Rounding.Roundup
 {
     public class Stage1LangMan : MonoBehaviour
     {
-
+        public TextMeshProUGUI example;
+        public TextMeshProUGUI onesDigit;
         public TextMeshProUGUI stage1Task1;
         public TextMeshProUGUI stage1Task2;
         public TextMeshProUGUI stage1Task3;
@@ -56,6 +57,9 @@ namespace Alpha.Phases.Rounding.Roundup
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
+
+                        example.text = defs["example"];
+                        onesDigit.text = defs["theOnesDigit"];
 
                         stage1Task1.text = defs["stage1Task1"];
                         stage1Task2.text = defs["stage1Task2"];

@@ -105,6 +105,11 @@ namespace Alpha.Phases.Rounding.Roundup
                     modelArray[i].SetActive(i == arrayPos);
                 }
 
+                if (MainGameManager.Instance.autoTTS)
+                {
+                    IntroTTSSpeak(arrayPos + 1);
+                }
+
                 // Handle the current array position if not yet processed
                 if (!textBools[arrayPos])
                 {
@@ -346,7 +351,7 @@ namespace Alpha.Phases.Rounding.Roundup
 
         public IEnumerator MoveToBlankInvislbePanalUnit17()
         {
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(3);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 20;
@@ -394,12 +399,14 @@ namespace Alpha.Phases.Rounding.Roundup
         public void CrossButton()
         {
             textPanal.gameObject.SetActive(false);
-            positionChanged = true;
+
+            positionChanged = false;
             arrayPos = 18;
+
             playerCont.moveSpeed = 8;
             crossButton1.gameObject.SetActive(false);
         }
-         public IEnumerator FadeBlack()
+        public IEnumerator FadeBlack()
         {
             yield return new WaitForSeconds(5);
             fadeBlack.gameObject.SetActive(true);

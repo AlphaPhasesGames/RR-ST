@@ -36,9 +36,13 @@ namespace Alpha.Phases.Rounding.Roundup
        // public bool stage2Part2;
 
 
-        public bool runScriptOnce;
 
+        public bool runScriptOnce;
         [SerializeField] Button continueButton, newGameButton;
+
+        [SerializeField] Toggle autoTTSToggle;
+
+        public bool autoTTS = true;
         public TextMeshProUGUI newGameText;
         public TextMeshProUGUI continueText;
         #endregion
@@ -68,6 +72,9 @@ namespace Alpha.Phases.Rounding.Roundup
 
         void Start()
         {
+            autoTTSToggle.isOn = autoTTS;
+            autoTTSToggle.onValueChanged.AddListener(SetAutoTTS);
+
             newGameButton.onClick.AddListener(RemoveMainMenuUINewGame); // new game button after pressing, hides the button - see script at the bottom of the script
             continueButton.onClick.AddListener(RemoveMainMenuUIContinue); ; // continune saved game button after pressing, hides the button - see script at the bottom of the script
 
@@ -235,6 +242,16 @@ namespace Alpha.Phases.Rounding.Roundup
             Save();
         }
 
+        public void SetAutoTTS(bool isOn)
+        {
+            autoTTS = isOn;
+
+            Debug.Log("TOGGLE CHANGED!");
+            Debug.Log("autoTTS is now: " + autoTTS);
+        }
+
     }
+
+
 }
 

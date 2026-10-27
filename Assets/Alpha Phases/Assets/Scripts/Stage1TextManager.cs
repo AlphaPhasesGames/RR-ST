@@ -91,13 +91,17 @@ namespace Alpha.Phases.Rounding.Roundup
             // Only process if the position has changed
             if (positionChanged)
             {
-                positionChanged = false; // Reset flag after processing
-
+                positionChanged = false;
 
                 // Deactivate all text objects, activate only the current one
                 for (int i = 0; i < modelArray.Length; i++)
                 {
                     modelArray[i].SetActive(i == arrayPos);
+                }
+
+                if (MainGameManager.Instance.autoTTS)
+                {
+                    IntroTTSSpeak(arrayPos + 1);
                 }
 
                 // Handle the current array position if not yet processed
@@ -391,8 +395,10 @@ namespace Alpha.Phases.Rounding.Roundup
         public void CrossButton()
         {
             textPanal.gameObject.SetActive(false);
-            positionChanged = true;
+
+            positionChanged = false;
             arrayPos = 20;
+
             playerCont.moveSpeed = 8;
             crossButton1.gameObject.SetActive(false);
         }
